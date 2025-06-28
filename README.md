@@ -2,7 +2,7 @@
 
 ## 1. Project Overview 🌟
 
-This project provides a comprehensive solution for predicting housing prices using a variety of machine learning regression models. It features a robust backend for model training and evaluation, coupled with a user-friendly Flask web application for interactive price forecasting. Our aim is to offer quick and data-driven estimates for real estate values.
+This project provides a comprehensive solution for predicting housing prices using a variety of machine learning regression models. It features a robust backend for model training and evaluation, coupled with a user-friendly Flask web application for interactive price forecasting. Our aim is to offer quick and data-driven estimates for real estate values..
 
 ## 2. Key Features ✨
 
