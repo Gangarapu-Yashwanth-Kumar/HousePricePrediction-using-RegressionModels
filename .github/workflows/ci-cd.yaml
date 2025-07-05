@@ -1,0 +1,54 @@
+# .github/workflows/main.yml
+
+name: Train Housing Regressor Models
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+  pull_request:
+    branches:
+      - main # Trigger on pull requests to the main branch
+  workflow_dispatch: # Allows manual triggering from the GitHub Actions UI
+
+jobs:
+  build-and-train:
+    runs-on: ubuntu-latest # The operating system where the job will run
+
+    steps:
+    - name: Checkout Repository
+      # This action checks out your repository under $GITHUB_WORKSPACE,
+      # so your workflow can access it.
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      # Sets up a Python environment for your workflow.
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.9' # Specify your desired Python version
+
+    - name: Install Dependencies
+      # Install the dependencies listed in requirements.txt
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Model Training and Evaluation Script
+      # Execute your Python script to train and evaluate the models
+      # and save them to the 'models' directory.
+      run: |
+        python "Housing Regressor Code.py"
+
+    - name: Upload All Generated Models and Results as Artifact
+      # Uploads the entire 'models' directory as a workflow artifact.
+      # This will contain all .pkl files and the Model_Evaluation_Results.csv
+      uses: actions/upload-artifact@v4
+      with:
+        name: housing-models-and-results
+        path: models/ # Path to the directory where models and results are saved
+
+    - name: Verify Generated Files (Optional)
+      # Simple step to ensure the 'models' directory and its contents were created
+      run: |
+        ls -lh models/
+        echo "Model training and saving complete, artifacts ready for upload."
