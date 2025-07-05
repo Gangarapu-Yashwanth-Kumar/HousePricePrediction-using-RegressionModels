@@ -14,7 +14,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import pickle
 import os # Added for path manipulation
 
-def train_and_evaluate_housing_models(data_path='USA_Housing.csv', output_dir='models'):
+def train_and_evaluate_housing_models(data_path='data/USA_Housing.csv', output_dir='models'):
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
 
