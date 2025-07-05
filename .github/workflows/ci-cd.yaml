@@ -37,7 +37,7 @@ jobs:
       # Execute your Python script to train and evaluate the models
       # and save them to the 'models' directory.
       run: |
-        python "Housing Regressor Code.py"
+        python "train_model.py"
 
     - name: Upload All Generated Models and Results as Artifact
       # Uploads the entire 'models' directory as a workflow artifact.
